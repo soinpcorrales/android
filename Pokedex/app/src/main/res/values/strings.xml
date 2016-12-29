@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+
+    <!-- exceptions -->
+    <string name="error_pokemons_not_found">Pokemon not found</string>
+    <string name="error_internet_connection">Please check your Internet connection!</string>
+    <string name="error_server_internal">Something went wrong with the server.</string>
+    <string name="search_pokemons_hint">load pokemon information .....</string>
+
+</resources>
