@@ -15,6 +15,13 @@ public class Constants {
     public static final String DEFAULT_URL_IMAG = "http://pokeapi.co/media/sprites/pokemon/";
     public static final String IMAGE_EXTENSION = ".png";
     public static final String MS_ADD_BUTTON = "Added to favorite list";
+    public static final String ABILITIES = "abilities: ";
+    public static final String STATS = "stats :";
+    public static final String MOVES = "some moves :";
+    public static final String HEIGHT= " m";
+    public static final String WEIGHT= " kg";
+    public static final String NUMBER = " #";
+
 
     private Constants() {}
 }

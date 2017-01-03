@@ -63,12 +63,14 @@ public class PokemonAdapter extends RecyclerView.Adapter<ViewHolder>  {
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder._img_view);
+
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(View view, int position, boolean isLongClick, int type) {
-                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                Intent intent = new Intent(_activity, DetailActivity.class);
                 intent.putExtra(Constants.CURRENT_POKEMON, Parcels.wrap(current));
-                view.getContext().startActivity(intent);
+                _activity.startActivity(intent);
+
             }
         });
     }

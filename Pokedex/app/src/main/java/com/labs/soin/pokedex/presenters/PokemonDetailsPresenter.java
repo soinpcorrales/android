@@ -1,7 +1,5 @@
 package com.labs.soin.pokedex.presenters;
 
-import android.util.Log;
-
 import com.labs.soin.pokedex.MainApplication;
 import com.labs.soin.pokedex.callbacks.PokemonDetailsCallback;
 import com.labs.soin.pokedex.interactors.PokemonDetailsIteractor;
@@ -23,56 +21,39 @@ public class PokemonDetailsPresenter implements Presenter<PokemonDetailsView>, P
     @Override
     public void setView(PokemonDetailsView view) {
         if (view == null) throw new IllegalArgumentException("You can't set a null view");
-        else {
-            pokemonsMvpView = view;
-            pokemonsInteractor = new PokemonDetailsIteractor(MainApplication.getContext());
-            pokemonsInteractor.loadPokemonInformation(String.valueOf(this.currentPokemon.getNumber()), this);
-        }
-
+        pokemonsMvpView = view;
+        pokemonsInteractor = new PokemonDetailsIteractor(MainApplication.getContext());
+        pokemonsInteractor.loadPokemonInformation(String.valueOf(this.currentPokemon.getNumber()), this);
     }
 
     @Override
     public void detachView() {
-       pokemonsMvpView = null;
+        pokemonsMvpView = null;
     }
 
     @Override
     public void onResponse(PokemonDetails pokemonData) {
-        if (pokemonsMvpView != null) {
-            pokemonsMvpView.hideLoading();
-            pokemonsMvpView.renderPokemonData(pokemonData);
-        }
-
+        pokemonsMvpView.hideLoading();
+        pokemonsMvpView.renderPokemonData(pokemonData);
     }
 
     @Override
     public void onPokemonNotFound() {
-        if (pokemonsMvpView != null) {
-            pokemonsMvpView.showPokemonNotFoundMessage();
-        }
+        pokemonsMvpView.showPokemonNotFoundMessage();
     }
 
     @Override
     public void onNetworkConnectionError() {
-
-        if (pokemonsMvpView != null) {
-            pokemonsMvpView.showConnectionErrorMessage();
-        }
+        pokemonsMvpView.showConnectionErrorMessage();
     }
 
     @Override
     public void onServerError() {
-
-        if (pokemonsMvpView != null) {
-            pokemonsMvpView.showServerError();
-        }
+        pokemonsMvpView.showServerError();
     }
 
 
     public void load(String id){
-
-        if (pokemonsMvpView != null) {
-            pokemonsInteractor.loadPokemonInformation(id, this);
-        }
+        pokemonsInteractor.loadPokemonInformation(id, this);
     }
 }

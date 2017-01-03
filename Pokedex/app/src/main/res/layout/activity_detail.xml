@@ -1,13 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/pokemonDetails_fragment"
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardUseCompatPadding="true" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_detail"
+                android:layout_width="@dimen/image_width"
+                android:layout_height="@dimen/image_height"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/name" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="@dimen/size_title"
+                android:text=""/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/weight"
+                android:layout_toRightOf="@+id/image_detail"
+                android:layout_toEndOf="@+id/image_detail"
+                android:layout_alignBottom="@+id/image_detail"
+                android:textSize="@dimen/normal_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/height"
+                android:layout_above="@+id/weight"
+                android:layout_toRightOf="@+id/image_detail"
+                android:layout_toEndOf="@+id/image_detail"
+                android:layout_marginBottom="11dp"
+                android:textSize="@dimen/normal_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/number"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text_size"
+                android:layout_below="@+id/name"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:id="@+id/txt_message"
+                style="@style/Theme.AppTheme.Music.TextView"
+                android:text="@string/search_pokemons_hint"
+                android:textSize="@dimen/size_title"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="376dp" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pb_pokemons"
+                style="@style/Theme.AppTheme.Music.ProgressBar"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/weight"
+                android:layout_toEndOf="@+id/weight" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/habilities"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_below="@+id/image_detail"
+                android:layout_alignLeft="@+id/stats"
+                android:layout_alignStart="@+id/stats" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/stats"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_below="@+id/habilities"
+                android:layout_alignRight="@+id/number"
+                android:layout_alignEnd="@+id/number" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/moves"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_below="@+id/stats"
+                android:layout_alignRight="@+id/number"
+                android:layout_alignEnd="@+id/number" />
+
+            <ImageButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                android:gravity="center"
+                android:src="@mipmap/ic_playlist_add_black_48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/number"
+                android:layout_alignEnd="@+id/number"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:layout_toRightOf="@+id/pb_pokemons"
+                android:layout_toEndOf="@+id/pb_pokemons"
+                android:id="@+id/bt_addPokemon"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
